@@ -38,13 +38,6 @@ class Blacklist
     private $threads;
 
     /**
-     * @var ArrayCollection
-     *
-     * @ORM\OneToMany(targetEntity="User",  mappedBy="id")
-     */
-    private $blockedUsers;
-
-    /**
      * Constructor
      */
     public function __construct()
@@ -131,55 +124,6 @@ class Blacklist
     public function removeThread($thread)
     {
         $this->threads->removeElement($thread);
-
-        return $this;
-    }
-
-    /**
-     * Get blocked users
-     *
-     * @return ArrayCollection
-     */
-    public function getBlockedUsers()
-    {
-        return $this->blockedUsers;
-    }
-
-    /**
-     * Set blocked users
-     *
-     * @param $blockedUsers
-     * @return Blacklist
-     */
-    public function setBlockedUsers($blockedUsers)
-    {
-        $this->blockedUsers = $blockedUsers;
-
-        return $this;
-    }
-
-    /**
-     * Add user to collection
-     *
-     * @param $user
-     * @return Blacklist
-     */
-    public function addBlockedUser($user)
-    {
-        $this->blockedUsers->add($user);
-
-        return $this;
-    }
-
-    /**
-     * Remove user from collection
-     *
-     * @param $user
-     * @return Blacklist
-     */
-    public function removeBlockedUser($user)
-    {
-        $this->blockedUsers->removeElement($user);
 
         return $this;
     }
